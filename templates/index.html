@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>WhiteAngels Platformu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            text-align: center;
+        }
+        .input-section {
+            margin-top: 20px;
+        }
+        .input-section textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .input-section button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .results {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: white;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .results .entity {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>WhiteAngels Platformu</h1>
+    </div>
+    <div class="container">
+        <div class="input-section">
+            <textarea id="textInput" placeholder="Metni buraya yazın..."></textarea>
+            <button onclick="analyzeText()">Analiz Et</button>
+        </div>
+        <div id="results" class="results"></div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function analyzeText() {
+            const text = document.getElementById("textInput").value;
+            $.ajax({
+                url: "/analyze",
+                type: "POST",
+                contentType: "application/json",
+                data: JSON.stringify({ text: text }),
+                success: function(response) {
+                    let resultsDiv = document.getElementById("results");
+                    resultsDiv.innerHTML = "<pre>" + JSON.stringify(response, null, 2) + "</pre>";
+                },
+                error: function(error) {
+                    console.error("Error:", error);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
