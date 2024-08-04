@@ -23,7 +23,6 @@ class DataProcessing:
     def clean_text(self, text):
         text = re.sub(r'\s+', ' ', text)  # Birden fazla boşluğu tek boşluğa indirgeme
         text = re.sub(r'http\S+', '', text)  # URL'leri kaldırma
-        text = re.sub(r'[^\w\s]', '', text)  # Noktalama işaretlerini kaldırma
         text = text.strip()  # Baş ve sondaki boşlukları kaldırma
         return text
 
