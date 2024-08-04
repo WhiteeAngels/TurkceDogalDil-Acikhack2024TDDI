@@ -1,4 +1,7 @@
-# Türkçe Doğal Dil İşleme Projesi - Açıkhack 2024
+# Türkçe Doğal Dil İşleme Projesi - Açıkhack 2024 - Acikhack2024TDDI
+### Bu proje Teknofest Dogal Dil İşleme için yapılmıştır. 
+(https://www.teknofest.org/tr/yarismalar/turkce-dogal-dil-isleme-yarismasi/)
+
 
 ## Takım Bilgileri
 
