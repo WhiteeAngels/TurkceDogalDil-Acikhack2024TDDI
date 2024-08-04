@@ -32,7 +32,10 @@ WhiteAngelss/entity-sentiment-analysis ve WhiteAngelss/entity-sentiment-analysis
 
 ## Model Açıklaması
 
-Bu model, Türkçe metinlerde varlık tanıma ve duygu analizi gerçekleştirir. `akdeniz27/bert-base-turkish-cased-ner` modelinden ince ayar yapılarak ve `ctoraman/atis-ner-turkish` veri seti üzerinde eğitilmiştir.
+Bu model, Türkçe metinlerde varlık tanıma ve duygu analizi gerçekleştirir. Ana model olarak kendi oluşturdugumuz `WhiteAngelss/entity-sentiment-anlaysis-v1` , `WhiteAngelss/entity-sentiment-analysis` ve `WhiteAngelss/entity-word-sentiment-analysis` bu modellerden yararlanılmıştır. `gurkan08/turkish-product-comment-sentiment-classification` modeli duygu analizinde bazı nokta atışları için kullanılmıştır. Ayrıca `akdeniz27/bert-base-turkish-cased-ner` modelinden ince ayar yapılarak ve `ctoraman/atis-ner-turkish` veri seti üzerinde eğitilmiştir. 
+
+## DataSet Açıklaması
+Kendi Hugging Face'imizde oluşturduğumuz bir çok dataset  kullanılmıştır bunlardan bazıları; `WhiteAngelss/entity-word-sentiment-analysis` , `WhiteAngelss/turkish-offensive-dataset`  ve `WhiteAngelss/Turkce-Duygu-Analizi-Dataset` bunlar olarak kullanılmıştır.
 
 ### Kullanım Amacı
 
