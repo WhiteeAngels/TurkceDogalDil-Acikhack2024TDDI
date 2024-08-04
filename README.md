@@ -1,15 +1,24 @@
 Türkçe Doğal Dil İşleme Projesi - Açıkhack 2024
-Takım Bilgileri
+
+   Takım Bilgileri
+
 Takım Adı: White Angels
+
 Hugging Face : https://huggingface.co/WhiteAngelss
+
 Github : https://github.com/WhiteeAngels
 
-Takım Üyeleri:
+   
+   Takım Üyeleri:
 
 Ali Emre(Kaptan): https://github.com/Aliemree
+
 İhsan Yörük : https://github.com/yorukihsan1
+
 Can Ahmedi Yaşar Parlak : https://github.com/canahmed
+
 Ugur Coruh(Danışman) : https://github.com/ucoruh
+
 
 Proje Hedefi:
 Bu proje, Türkçe metinlerde varlık tanıma (Named Entity Recognition) ve duygu analizi (Sentiment Analysis) yapmayı hedeflemektedir.
@@ -31,6 +40,7 @@ Model, müşteri yorumlarını analiz etmek, varlıkları tanımlamak ve bu varl
 Sınırlamalar ve Yanlılıklar
 Model, öncelikle Türkçe metinler üzerinde eğitildiği için diğer dillerde iyi performans göstermeyebilir.
 Eğitim verilerindeki yanlılıklar, modelin tahminlerini etkileyebilir.
+
 Eğitim Verisi
 Model, ctoraman/atis-ner-turkish ve akdeniz27/bert-base-turkish-cased-ner veri setleri kullanılarak eğitildi.
 
@@ -40,6 +50,7 @@ Model, varlık tanıma için 0.92 F1 skoru ve duygu analizi için 0.88 doğruluk
    Adımlar
 1. Bu repository'i klonlayın:
     git clone https://github.com/WhiteeAngels/TurkceDogalDil-Acikhack2024TDDI.git
+   
 2.Gerekli paketleri yükleyin:
     pip install -r requirements.txt
    
@@ -56,7 +67,7 @@ Model, varlık tanıma için 0.92 F1 skoru ve duygu analizi için 0.88 doğruluk
 Ana scripti çalıştırmak için:
    python main.py
 
-    Örnek Kullanım
+   Örnek Kullanım
 Girdi olarak verilen bir metnin işlenmesi örneği:
 
 from WhiteAngelss/entity-sentiment-analysis-v1 import analyze_text
@@ -79,6 +90,7 @@ Proje Mimarisi
 Bu proje iki ana bileşenden oluşmaktadır:
 
 1.Varlık Tanıma Modülü: SpaCy kullanarak Türkçe metinlerdeki varlıkları tanımlar.
+
 2.Duygu Analizi Modülü: Custom BERT modeli ile her bir varlığın duygu analizini yapar.
 
 Katkıda Bulunanlar
