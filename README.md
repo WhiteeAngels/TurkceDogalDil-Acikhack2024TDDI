@@ -88,7 +88,7 @@ Bu proje **WhiteAngels** tarafından yapılmıştır.
     ```
 2. Sanal modeli aktif edin 
    ```bash
-   venv\Scripts\disactivate
+   venv\Scripts\activate
    ```
 3. SpaCy modelini indirin:
     ```bash
