@@ -86,15 +86,18 @@ Bu proje **WhiteAngels** tarafından yapılmıştır.
     ```bash
     git clone https://github.com/WhiteeAngels/TurkceDogalDil-Acikhack2024TDDI.git
     ```
-2. Gerekli paketleri yükleyin:
-    ```bash
-    pip install -r requirements.txt
-    ```
+2. Sanal modeli aktif edin 
+   ```bash
+   venv\Scripts\disactivate
+   ```
 3. SpaCy modelini indirin:
     ```bash
     python -m spacy download xx_ent_wiki_sm
     ```
-
+4. Gerekli paketleri yükleyin:
+    ```bash
+    pip install -r requirements.txt
+    ```
 ## Kullanım
 
 Ana scripti çalıştırmak için:
@@ -125,3 +128,28 @@ print(results)
     ]
 }
 
+
+```python
+text = "Fiber 100mb SuperOnline kullanıcısıyım yaklaşık 2 haftadır @Twitch @Kick_Turkey  gibi canlı yayın platformlarında 360p yayın izlerken donmalar
+yaşıyoruz. Başka hiç bir operatörler bu sorunu yaşamazken ben parasını verip alamadığım hizmeti neden ödeyeyim ? @Turkcell
+"
+results = analyze_text(text)
+print(results)
+
+```json
+{
+    "entity_list": [
+      "SuperOnline",
+      "Twitch",
+      "Kick_Turkey",
+      "Başka hiç bir operatörler",
+      "Turkcell"
+      ],
+    "entities": [
+        {"entity": "SuperOnline", "sentiment": "olumsuz"},
+        {"entity": "Twitch" , "sentiment": "nötr"},
+        {"entity": "Kick_Turkey", "sentiment": "nötr"},
+        {"entity": "Başka hiç bir operatörler", "sentiment": "nötr"},
+        {"entity": "Turkcell", "sentiment": "olumsuz"}
+    ]
+}
