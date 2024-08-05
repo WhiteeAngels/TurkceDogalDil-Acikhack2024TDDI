@@ -66,6 +66,6 @@ class DataProcessing:
 
         return {
             "cleaned_text": cleaned_text,
-            "entities": entities,
+            "entity_list": entities,
             "results": results
         }
