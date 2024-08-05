@@ -45,6 +45,13 @@ class DataProcessing:
     def extract_sentiment(self, text):
         sentiment_results = self.sentiment_pipeline(text)
         sentiment = sentiment_results[0]['label']
+        # İngilizce etiketleri Türkçe karşılıklarına çevirme
+        if sentiment == 'positive':
+            sentiment = 'olumlu'
+        elif sentiment == 'negative':
+            sentiment = 'olumsuz'
+        elif sentiment == 'neutral':
+            sentiment = 'nötr'
         return sentiment
 
     def process_text(self, text):
