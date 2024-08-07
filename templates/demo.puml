@@ -1,0 +1,38 @@
+@startuml
+
+package "Türkçe Doğal Dil İşleme Projesi" {
+    class Main {
+        + main(args: String[])
+    }
+
+    package "Modüller" {
+        class VarlikTanimaModulu {
+            + tanimla(metin: String): List<Varlik>
+        }
+
+        class DuyguAnaliziModulu {
+            + analizEt(varlik: Varlik): Duygu
+        }
+    }
+
+    package "Veri Modelleri" {
+        class Varlik {
+            + ad: String
+            + tip: String
+        }
+
+        class Duygu {
+            + tur: String
+            + skala: int
+        }
+    }
+
+    Main --> VarlikTanimaModulu : kullanır
+    Main --> DuyguAnaliziModulu : kullanır
+    VarlikTanimaModulu --> Varlik : üretir
+    DuyguAnaliziModulu --> Duygu : üretir
+
+    VarlikTanimaModulu -[hidden]-> DuyguAnaliziModulu : işbirliği
+}
+
+@enduml
