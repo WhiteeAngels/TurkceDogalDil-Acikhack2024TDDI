@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>WhiteAngels Platformu</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            width: 60%;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        .header {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .input-section {
+            padding: 20px;
+        }
+        .input-section textarea {
+            width: 100%;
+            height: 150px;
+            padding: 15px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            transition: border-color 0.3s;
+        }
+        .input-section textarea:focus {
+            border-color: #4CAF50;
+            outline: none;
+        }
+        .input-section button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .input-section button:hover {
+            background-color: #45a049;
+        }
+        .results {
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-top: 1px solid #eee;
+        }
+        .results .entity {
+            font-weight: bold;
+            color: #333;
+        }
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            font-size: 16px;
+            color: #333;
+        }
+        .loading i {
+            margin-right: 10px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>WhiteAngels Platformu</h1>
+        </div>
+        <div class="input-section">
+            <textarea id="textInput" placeholder="Metni buraya yazın..."></textarea>
+            <button onclick="analyzeText()">Analiz Et</button>
+        </div>
+        <div id="results" class="results"></div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function analyzeText() {
+            const text = document.getElementById("textInput").value;
+            let resultsDiv = document.getElementById("results");
+            resultsDiv.innerHTML = '<div class="loading"><i class="fas fa-spinner"></i> İşleniyor...</div>';
+
+            $.ajax({
+                url: "/analyze",
+                type: "POST",
+                contentType: "application/json",
+                data: JSON.stringify({ text: text }),
+                success: function(response) {
+                    resultsDiv.innerHTML = "<pre>" + JSON.stringify(response, null, 2) + "</pre>";
+                },
+                error: function(error) {
+                    resultsDiv.innerHTML = '<div class="loading"><i class="fas fa-exclamation-triangle"></i> Hata oluştu.</div>';
+                    console.error("Error:", error);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
