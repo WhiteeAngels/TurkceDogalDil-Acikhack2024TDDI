@@ -1,7 +1,8 @@
 # Türkçe Doğal Dil İşleme Projesi - Açıkhack 2024 - Acikhack2024TDDI
-### Bu proje Teknofest Dogal Dil İşleme için yapılmıştır. 
-(https://www.teknofest.org/tr/yarismalar/turkce-dogal-dil-isleme-yarismasi/)
 
+### Bu proje Teknofest Doğal Dil İşleme Yarışması için yapılmıştır.
+
+(https://www.teknofest.org/tr/yarismalar/turkce-dogal-dil-isleme-yarismasi/)
 
 ## Takım Bilgileri
 
@@ -9,14 +10,14 @@
 
 **Hugging Face:** [White Angels](https://huggingface.co/WhiteAngelss)
 
-**Github:** [White Angels](https://github.com/WhiteeAngels)
+**GitHub:** [White Angels](https://github.com/WhiteeAngels)
 
 ### Takım Üyeleri:
 
-- **Ali Emre (Kaptan):** [GitHub](https://github.com/Aliemree)
-- **İhsan Yörük:** [GitHub](https://github.com/yorukihsan1)
-- **Can Ahmedi Yaşar Parlak:** [GitHub](https://github.com/canahmed)
-- **Uğur Çoruh (Danışman):** [GitHub](https://github.com/ucoruh)
+- **Ali EMRE (Kaptan):** [GitHub](https://github.com/Aliemree)
+- **İhsan YÖRÜK:** [GitHub](https://github.com/yorukihsan1)
+- **Can Ahmedi Yaşar PARLAK:** [GitHub](https://github.com/canahmed)
+- **Dr. Öğr. Üyesi Uğur CORUH (Danışman):** [GitHub](https://github.com/ucoruh)
 
 ## Proje Hedefi
 
@@ -28,18 +29,19 @@ Bu proje, Türkçe metinlerde kişi isimleri, marka ve model isimleri, organizas
 
 **Hugging Face:** [White Angels](https://huggingface.co/WhiteAngelss)
 
-WhiteAngelss/entity-sentiment-analysis ve WhiteAngelss/entity-sentiment-analysis-v1 modelleri yapılmıştır.
+`WhiteAngelss/entity-sentiment-analysis` ve `WhiteAngelss/entity-sentiment-analysis-v1` modelleri yapılmıştır.
 
 ## Model Açıklaması
 
-Bu model, Türkçe metinlerde varlık tanıma ve duygu analizi gerçekleştirir. Ana model olarak kendi oluşturdugumuz `WhiteAngelss/entity-sentiment-anlaysis-v1` , `WhiteAngelss/entity-sentiment-analysis` ve `WhiteAngelss/entity-word-sentiment-analysis` bu modellerden yararlanılmıştır. `gurkan08/turkish-product-comment-sentiment-classification` modeli duygu analizinde bazı nokta atışları için kullanılmıştır. Ayrıca `akdeniz27/bert-base-turkish-cased-ner` modelinden ince ayar yapılarak ve `ctoraman/atis-ner-turkish` veri seti üzerinde eğitilmiştir. 
+Bu model, Türkçe metinlerde varlık tanıma ve duygu analizi gerçekleştirir. Ana model olarak kendi oluşturduğumuz `WhiteAngelss/entity-sentiment-analysis-v1`, `WhiteAngelss/entity-sentiment-analysis` ve `WhiteAngelss/entity-word-sentiment-analysis` modellerinden yararlanılmıştır. `gurkan08/turkish-product-comment-sentiment-classification` modeli duygu analizinde bazı nokta atışları için kullanılmıştır. Ayrıca `akdeniz27/bert-base-turkish-cased-ner` modelinden ince ayar yapılarak ve `ctoraman/atis-ner-turkish` veri seti üzerinde eğitilmiştir.
 
-# Değerlendirme Sonuçları
+## Değerlendirme Sonuçları
 
-Model, varlık tanıma için 0.92 F1 skoru ve duygu analizi için 0.88 doğruluk elde etti.
+Model, varlık tanıma için 0.92 F1 skoru ve duygu analizi için 0.88 doğruluk elde etmiştir.
 
-## DataSet Açıklaması
-Kendi Hugging Face'imizde oluşturduğumuz bir çok dataset  kullanılmıştır bunlardan bazıları; `WhiteAngelss/entity-word-sentiment-analysis` , `WhiteAngelss/turkish-offensive-dataset`  ve `WhiteAngelss/Turkce-Duygu-Analizi-Dataset` bunlar olarak kullanılmıştır.
+## Veri Seti Açıklaması
+
+Kendi Hugging Face'imizde oluşturduğumuz birçok veri seti kullanılmıştır. Bunlardan bazıları: `WhiteAngelss/entity-word-sentiment-analysis`, `WhiteAngelss/turkish-offensive-dataset` ve `WhiteAngelss/Turkce-Duygu-Analizi-Dataset`.
 
 ### Kullanım Amacı
 
@@ -52,7 +54,7 @@ Model, müşteri yorumlarını analiz etmek, varlıkları tanımlamak ve bu varl
 
 ### Eğitim Verisi
 
-Model, `ctoraman/atis-ner-turkish` ve `akdeniz27/bert-base-turkish-cased-ner` veri setleri kullanılarak eğitildi.
+Model, `ctoraman/atis-ner-turkish` ve `akdeniz27/bert-base-turkish-cased-ner` veri setleri kullanılarak eğitilmiştir.
 
 ## Proje Mimarisi
 
@@ -69,7 +71,7 @@ Katkıda bulunmak isterseniz, lütfen bir pull request gönderin. Her türlü ka
 
 Bu proje MIT lisansı ile lisanslanmıştır. Daha fazla bilgi için [LICENSE](./LICENSE) dosyasına bakınız.
 
-Bu proje **WhiteAngels** tarafından yapılmıştır.
+Bu proje **White Angels** tarafından yapılmıştır.
 
 ## Kurulum
 
@@ -83,73 +85,92 @@ Bu proje **WhiteAngels** tarafından yapılmıştır.
 ### Adımlar
 
 1. Bu repository'i klonlayın:
-    ```bash
-    git clone https://github.com/WhiteeAngels/TurkceDogalDil-Acikhack2024TDDI.git
-    ```
-2. Sanal modeli aktif edin 
+   
+   ```bash
+   git clone https://github.com/WhiteeAngels/TurkceDogalDil-Acikhack2024TDDI.git
+   ```
+
+2. Sanal ortamı aktif edin:
+   
    ```bash
    venv\Scripts\activate
    ```
+
 3. SpaCy modelini indirin:
-    ```bash
-    python -m spacy download xx_ent_wiki_sm
-    ```
+   
+   ```bash
+   python -m spacy download xx_ent_wiki_sm
+   ```
+
 4. Gerekli paketleri yükleyin:
-    ```bash
-    pip install -r requirements.txt
-    ```
+   
+   ```bash
+   pip install -r requirements.txt
+   ```
+
 ## Kullanım
 
 Ana scripti çalıştırmak için:
 
 ```bash
 python main.py
+```
 
 # Örnek Kullanım
 
 Girdi olarak verilen bir metnin işlenmesi örneği:
 
 ```python
-from WhiteAngelss.entity_sentiment_analysis_v1 import analyze_text
-
-text = "Ankara'da yapılan toplantıya Mercedes'in yeni modeli A-Class ile Ahmet katıldı."
-results = analyze_text(text)
+from WhiteAngelss.entity_sentiment_analysis_v1 
+import analyze_text  
+text = "Ankara'da yapılan toplantıya Mercedes'in yeni modeli A-Class ile Ahmet katıldı." 
+results = analyze_text(text) 
 print(results)
+```
 
 ## Beklenen Çıktı
 
 ```json
-{
-    "entities": [
-        {"entity": "Ankara", "sentiment": "nötr"},
-        {"entity": "Mercedes", "sentiment": "nötr"},
-        {"entity": "A-Class", "sentiment": "nötr"},
-        {"entity": "Ahmet", "sentiment": "nötr"}
-    ]
-}
+    {     
+        "entities": [         
+            {"entity": "Ankara", "sentiment": "nötr"},         
+            {"entity": "Mercedes", "sentiment": "nötr"},         
+            {"entity": "A-Class", "sentiment": "nötr"},         
+            {"entity": "Ahmet", "sentiment": "nötr"}     
+        ] 
+    }
+```
 
+Başka bir örnek:
 
 ```python
-text = "Fiber 100mb SuperOnline kullanıcısıyım yaklaşık 2 haftadır @Twitch @Kick_Turkey  gibi canlı yayın platformlarında 360p yayın izlerken donmalar
-yaşıyoruz. Başka hiç bir operatörler bu sorunu yaşamazken ben parasını verip alamadığım hizmeti neden ödeyeyim ? @Turkcell
-"
-results = analyze_text(text)
+text = "Fiber 100mb SuperOnline kullanıcısıyım yaklaşık 2 haftadır @Twitch @Kick_Turkey gibi canlı yayın platformlarında 360p yayın izlerken donmalar yaşıyoruz. Başka hiç bir operatörler bu sorunu yaşamazken ben parasını verip alamadığım hizmeti neden ödeyeyim? @Turkcell" 
+results = analyze_text(text) 
 print(results)
+```
+
+## Beklenen Çıktı
 
 ```json
-{
-    "entity_list": [
-      "SuperOnline",
-      "Twitch",
-      "Kick_Turkey",
-      "Başka hiç bir operatörler",
-      "Turkcell"
-      ],
-    "entities": [
-        {"entity": "SuperOnline", "sentiment": "olumsuz"},
-        {"entity": "Twitch" , "sentiment": "nötr"},
-        {"entity": "Kick_Turkey", "sentiment": "nötr"},
-        {"entity": "Başka hiç bir operatörler", "sentiment": "nötr"},
-        {"entity": "Turkcell", "sentiment": "olumsuz"}
-    ]
-}
+    {     
+        "entity_list": [
+        "SuperOnline",
+        "Twitch",
+        "Kick_Turkey",
+        "Başka hiç bir operatörler",
+        "Turkcell"
+        ],
+        "entities": [
+            {"entity": "SuperOnline", 
+            "sentiment": "olumsuz"},         
+            {"entity": "Twitch", 
+            "sentiment": "nötr"},         
+            {"entity": "Kick_Turkey", 
+            "sentiment": "nötr"},         
+            {"entity": "Başka hiç bir operatörler",
+            "sentiment": "nötr"},         
+            {"entity": "Turkcell", 
+            "sentiment": "olumsuz"}     
+            ] 
+    }
+```
