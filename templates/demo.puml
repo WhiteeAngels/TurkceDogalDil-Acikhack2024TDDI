@@ -1,11 +1,11 @@
 @startuml
 
-package "Türkçe Doğal Dil İşleme Projesi" {
+package "Turkçe Dogal Dil Isleme Projesi" {
     class Main {
         + main(args: String[])
     }
 
-    package "Modüller" {
+    package "Moduller" {
         class VarlikTanimaModulu {
             + tanimla(metin: String): List<Varlik>
         }
@@ -29,10 +29,10 @@ package "Türkçe Doğal Dil İşleme Projesi" {
 
     Main --> VarlikTanimaModulu : kullanır
     Main --> DuyguAnaliziModulu : kullanır
-    VarlikTanimaModulu --> Varlik : üretir
-    DuyguAnaliziModulu --> Duygu : üretir
+    VarlikTanimaModulu --> Varlik : uretir
+    DuyguAnaliziModulu --> Duygu : uretir
 
-    VarlikTanimaModulu -[hidden]-> DuyguAnaliziModulu : işbirliği
+    VarlikTanimaModulu -[hidden]-> DuyguAnaliziModulu : isbirligi
 }
 
 @enduml

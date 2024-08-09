@@ -1,5 +1,7 @@
-import re
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
 from transformers import pipeline, BertTokenizer, BertForTokenClassification, AutoModelForSequenceClassification, AutoTokenizer
+import re
 
 class DataProcessing:
     def __init__(self):
@@ -10,23 +12,22 @@ class DataProcessing:
         model_name = 'akdeniz27/bert-base-turkish-cased-ner'
         tokenizer = BertTokenizer.from_pretrained(model_name)
         model = BertForTokenClassification.from_pretrained(model_name)
-        ner_pipeline = pipeline('ner', model=model, tokenizer=tokenizer, aggregation_strategy='simple')
-        return ner_pipeline
+        return pipeline('ner', model=model, tokenizer=tokenizer, aggregation_strategy='simple')
 
     def load_sentiment_model(self):
         model_name = 'gurkan08/turkish-product-comment-sentiment-classification'
         tokenizer = AutoTokenizer.from_pretrained(model_name)
         model = AutoModelForSequenceClassification.from_pretrained(model_name)
-        sentiment_pipeline = pipeline('sentiment-analysis', model=model, tokenizer=tokenizer)
-        return sentiment_pipeline
+        return pipeline('sentiment-analysis', model=model, tokenizer=tokenizer)
 
     def clean_text(self, text):
-        text = re.sub(r'\s+', ' ', text)  # Birden fazla boşluğu tek boşluğa indirgeme
-        text = re.sub(r'http\S+', '', text)  # URL'leri kaldırma
-        text = text.strip()  # Baş ve sondaki boşlukları kaldırma
-        return text
+        """Clean the input text by removing URLs, trimming whitespace, and normalizing spaces."""
+        text = re.sub(r'http\S+', '', text)  # Remove URLs
+        text = re.sub(r'\s+', ' ', text)  # Replace multiple spaces with a single space
+        return text.strip()  # Trim leading and trailing whitespace
 
     def smart_extract_entities(self, text):
+        """Extract entities from text based on capitalization or special symbols (e.g., '@')."""
         ner_results = self.ner_pipeline(text)
         entities = []
 
@@ -43,29 +44,28 @@ class DataProcessing:
         return entities
 
     def extract_sentiment(self, text):
-        sentiment_results = self.sentiment_pipeline(text)
-        sentiment = sentiment_results[0]['label']
-        # İngilizce etiketleri Türkçe karşılıklarına çevirme
-        if sentiment == 'positive':
-            sentiment = 'olumlu'
-        elif sentiment == 'negative':
-            sentiment = 'olumsuz'
-        elif sentiment == 'neutral':
-            sentiment = 'nötr'
-        return sentiment
+        """Analyze sentiment of the text and return it in Turkish."""
+        sentiment_result = self.sentiment_pipeline(text)[0]
+        sentiment_label = sentiment_result['label'].lower()
+
+        # Translate sentiment labels to Turkish
+        sentiment_mapping = {
+            'positive': 'olumlu',
+            'negative': 'olumsuz',
+            'neutral': 'nötr'
+        }
+        return sentiment_mapping.get(sentiment_label, 'bilinmiyor')  # 'bilinmiyor' for unknown labels
 
     def process_text(self, text):
+        """Process the input text to extract cleaned text, entities, and their sentiment."""
         cleaned_text = self.clean_text(text)
         entities = self.smart_extract_entities(cleaned_text)
-
         sentiment = self.extract_sentiment(cleaned_text)
 
-        results = []
-        for entity in entities:
-            results.append({"entity": entity, "sentiment": sentiment})
+        results = [{"entity": entity, "sentiment": sentiment} for entity in entities]
 
         return {
-            "cleaned_text": cleaned_text,
+
             "entity_list": entities,
             "results": results
         }
